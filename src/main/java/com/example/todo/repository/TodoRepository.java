@@ -7,11 +7,11 @@ import java.util.*;
 public interface TodoRepository {
     ArrayList<Todo> getAllTodos();
 
-    Todo getTodoById(int id);
+    Todo getTodoById(int todoId);
 
     Todo addTodo(Todo todo);
 
-    Todo updateTodo(int id, Todo todo);
+    Todo updateTodo(int todoId, Todo todo);
 
-    void deleteTodo(int id);
+    void deleteTodo(int todoId);
 }

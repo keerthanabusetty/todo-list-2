@@ -33,8 +33,8 @@ public class TodoH2Service implements TodoRepository {
 
     @Override
     public ArrayList<Todo> getAllTodos() {
-        List<Todo> todoList = db.query("select * from TODOLIST", new TodoRowMapper());
-        ArrayList<Todo> todos = new ArrayList<>(todoList);
+        List<Todo> todoData = db.query("select * from TODOLIST", new TodoRowMapper());
+        ArrayList<Todo> todos = new ArrayList<>(todoData);
         return todos;
     }
 
@@ -42,7 +42,7 @@ public class TodoH2Service implements TodoRepository {
 
     public Todo getTodoById(int id) {
         try {
-            Todo todo = db.queryForObject("select * from TODOLIST where id=?", new TodoRowMapper());
+            Todo todo = db.queryForObject("select * from TODOLIST where id=?", new TodoRowMapper(), id);
             return todo;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);

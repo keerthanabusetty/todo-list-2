@@ -19,7 +19,7 @@ import com.example.todo.model.Todo;
 
 public class TodoController {
     @Autowired
-    public TodoH2Service todoService;
+    private TodoH2Service todoService;
 
     @GetMapping("/todos")
     public ArrayList<Todo> getAllTodos() {
